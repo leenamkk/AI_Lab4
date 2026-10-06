@@ -1,0 +1,43 @@
+
+30 ?- house = house.
+true.
+Explanation: Both terms are identical atoms.
+
+30 ?- house = abc.
+false.
+Explanation: Two different atoms cannot unify.
+
+31 ?- edge(a,b) = edge(C,b).
+C = a.
+Explanation: Predicates match and second arguments match, so variable C is bound to a.
+
+32 ?- edge(a,d) = edge(C,B).
+C = a,
+B = d.
+Explanation: Variables C and B are bound to positional arguments a and d.
+
+33 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+Explanation: Order of comparison does not change binding behavior.
+
+34 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+Explanation: Variable A binds to a and B binds to the complex structure f(g,h).
+
+35 ?- edge(A,A) = edge(b,c).
+false.
+Explanation: Variable A cannot unify with two different values (b and c) at the same time.
+
+36 ?- edge(A,A) = edge(b,b).
+A = b.
+Explanation: Unification succeeds because both arguments on the right are identical (b).
+
+37 ?- A = B, B = f.
+A = B, B = f.
+Explanation: A is bound to B, then B gets bound to f, making both equal to f.
+
+38 ?- A = B, B = f, A = e.
+false.
+Explanation: A was already bound to f, so re-binding A to e fails.
