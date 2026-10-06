@@ -1,0 +1,18 @@
+43 ?- female(X).
+X = sara .
+
+44 ?- male(_).
+true .
+
+45 ?- parent(GP, Parent), parent(Parent, faisal).
+GP = ali,
+Parent = muhammad .
+
+46 ?- parent(ahmad, Daughter), female(Daughter).
+Daughter = sara .
+
+47 ?- parent(P, ahmad), parent(P, muhammad).
+P = ali.
+
+48 ?- male(khan), parent(P, khan), parent(P, nora).
+P = ahmad.
